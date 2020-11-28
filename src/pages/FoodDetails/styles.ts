@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
 
+interface ModalProps {
+  visible: boolean;
+}
+
 export const Container = styled.View`
   flex: 1;
   background: #fff;
@@ -12,6 +16,26 @@ export const Header = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const Modal = styled.View<ModalProps>`
+  width: 100%;
+  height: 100%;
+
+  background: #000000;
+  opacity: 0.9;
+  justify-content: center;
+  align-items: center;
+
+  display: ${props => (props.visible ? 'flex' : 'none')};
+`;
+
+export const ModalText = styled.Text`
+  color: #ffffff;
+  font-size: 28px;
+  font-family: 'Poppins-Regular';
+
+  margin-top: 28px;
 `;
 
 export const ScrollContainer = styled.ScrollView.attrs({
